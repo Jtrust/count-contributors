@@ -6,7 +6,7 @@ const axios = require('axios');
 const app = require('json-to-markdown-table');
 
 class Count {
-  constructor({ input, output, format, cols=5 }) {
+  constructor({ input, output, format, cols = 5 }) {
     this.input = input;
     this.output = output;
     this.format = format;
@@ -93,9 +93,10 @@ class Count {
   }
 
   async getRepoContributors({ user, repo, page = 1, per_page = 100, list = [], item }) {
-    const { data } = await axios.get(
+    let { data } = await axios.get(
       `https://api.github.com/repos/${user}/${repo}/contributors?page=${page}&per_page=${per_page}&anon=true`,
     );
+    data = data.filter((item) => item.type !== 'Bot');
 
     list.push(...data);
     this.getUniqueId(data);

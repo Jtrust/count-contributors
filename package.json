@@ -8,6 +8,7 @@
     "url": ""
   },
   "scripts": {
+    "example": "node ./examples/index.js",
     "lint": "eslint --ext .js --fix ./src",
     "prepare": "husky install"
   },

@@ -1,0 +1,234 @@
+- type: General
+  description:
+  list:
+    - name: SkyWalking
+      icon: S
+      description: The documentation including core concepts, protocols, Java agent, OAP backend, and UI
+      user: apache
+      repo: skywalking
+      repoUrl: https://github.com/apache/skywalking.git
+      docs:
+        - version: latest
+          link: /docs/main/latest/readme/
+        - version: v8.6.0
+          link: /docs/main/v8.6.0/readme/
+          commitId: 3854eeddb2506de5026f0fa3957facd2059e9743
+        - version: v8.5.0
+          link: /docs/main/v8.5.0/readme/
+          commitId: 5ed08b9eef94a921619798633485884d7d86ab56
+        - version: v8.4.0
+          link: /docs/main/v8.4.0/readme/
+          commitId: 0bdb38615c099d05ae397b5143473a31c8ceab3f
+        - version: v8.3.0
+          link: /docs/main/v8.3.0/readme/
+          commitId: d4c695f1566f23176ccf1217e4892d816ff36459
+        - version: v8.2.0
+          link: /docs/main/v8.2.0/readme/
+          commitId: c6f4ababb63c8165b950c4063ad8bb314ac868e0
+
+    - name: Rocketbot UI
+      icon: R
+      description: Apache SkyWalking UI.
+      user: apache
+      repo: skywalking-rocketbot-ui
+
+    - name: SkyWalking Website
+      icon: W
+      description: This is the repository including all source codes of http://skywalking.apache.org
+      user: apache
+      repo: skywalking-website
+
+- type: Agent
+  description:
+  list:
+    - name: Nginx LUA Agent
+      icon: L
+      description: SkyWalking Nginx Agent provides the native tracing capability for Nginx powered by Nginx LUA module.
+      user: apache
+      repo: skywalking-nginx-lua
+      docs:
+        - version: v0.5.0
+          link: https://github.com/apache/skywalking-nginx-lua/tree/v0.5.0
+
+    - name: Kong Agent
+      icon: K
+      description: SkyWalking Kong Agent provides the native tracing capability.
+      user: apache
+      repo: skywalking-kong
+      docs:
+        - version: v0.1.1
+          link: https://github.com/apache/skywalking-kong/tree/v0.1.1
+
+    - name: Python Agent
+      icon: P
+      description: The Python Agent for Apache SkyWalking, which provides the native tracing abilities for Python project.
+      user: apache
+      repo: skywalking-python
+      docs:
+        - version: v0.6.0
+          link: https://github.com/apache/skywalking-python/tree/v0.6.0
+
+    - name: NodeJS Agent
+      icon: J
+      description: The NodeJS Agent for Apache SkyWalking, which provides the native tracing abilities for NodeJS project.
+      user: apache
+      repo: skywalking-nodejs
+      docs:
+        - version: v0.3.0
+          link: https://github.com/apache/skywalking-nodejs/tree/v0.3.0
+
+    - name: Client JavaScript
+      icon: C
+      description: Apache SkyWalking Client-side JavaScript exception and tracing library.
+      user: apache
+      repo: skywalking-client-js
+      docs:
+        - version: v0.5.1
+          link: https://github.com/apache/skywalking-client-js/tree/v0.5.1
+
+    - name: SkyWalking Satellite
+      icon: S
+      description: A lightweight collector/sidecar could be deployed closing to the target monitored system, to collect metrics, traces, and logs.
+      user: apache
+      repo: skywalking-satellite
+      repoUrl: https://github.com/apache/skywalking-satellite.git
+      docs:
+        - version: latest
+          link: /docs/skywalking-satellite/latest/readme/
+        - version: v0.1.0
+          link: /docs/skywalking-satellite/v0.1.0/readme/
+          commitId: dfb8195ea3cb372d8103fb3897be0e882b4bcf67
+
+- type: Operation
+  description:
+  list:
+    - name: SkyWalking CLI
+      icon: C
+      description: SkyWalking CLI is a command interaction tool for the SkyWalking user or OPS team.
+      user: apache
+      repo: skywalking-cli
+      docs:
+        - version: v0.4.0
+          link: https://github.com/apache/skywalking-cli/tree/0.4.0
+
+    - name: Kubernetes Helm
+      icon: H
+      description: SkyWalking Kubernetes repository provides ways to install and configure SkyWalking in a Kubernetes cluster. The scripts are written in Helm 3.
+      user: apache
+      repo: skywalking-kubernetes
+      docs:
+        - version: v4.0.0
+          link: https://github.com/apache/skywalking-kubernetes/tree/v4.0.0
+
+    - name: SkyWalking Cloud on Kubernetes
+      icon: K
+      description: A bridge project between Apache SkyWalking and Kubernetes.
+      user: apache
+      repo: skywalking-swck
+      docs:
+        - version: v0.3.0
+          link: https://github.com/apache/skywalking-swck/tree/0.3.0
+
+    - name: Docker Files
+      icon: D
+      description: Apache SkyWalking Docker Files.
+      user: apache
+      repo: skywalking-docker
+
+
+- type: Protocol
+  description:
+  list:
+    - name: Data Collect Protocol
+      icon: C
+      description: Apache SkyWalking data collect protocol.
+      user: apache
+      repo: skywalking-data-collect-protocol
+
+    - name: Query Protocol
+      icon: Q
+      description: Query Protocol defines the communication protocol in query stage. SkyWalking native UI and CLI use this protocol to fetch data from the backend consistently.
+      user: apache
+      repo: skywalking-query-protocol
+
+    - name: Go API
+      icon: G
+      description: Apache SkyWalking APIs in Golang
+      user: apache
+      repo: skywalking-goapi
+
+- type: Tools
+  description: SkyWalking native tools to support development and testing.
+  list:
+    - name: skywalking-agent-test-tool
+      icon: T
+      description: SkyWalking Agent Test Tool is a tremendously useful test tools suite in a wide variety of languages of Agent. Includes mock collector and validator.
+      user: apache
+      repo: skywalking-agent-test-tool
+
+    - name: SkyWalking Eyes
+      icon: I
+      description: A full-featured license tool to check and fix license headers and resolve dependencies' licenses.
+      user: apache
+      repo: skywalking-eyes
+      docs:
+        - version: v0.1.0
+          link: https://github.com/apache/skywalking-eyes/tree/v0.1.0
+
+- type: Ecosystem
+  description: All following repositories are a part of SkyWalking ecosystem, as agent implementations, extensions, or tools. All the source codes and their distributions are not belonging to the Apache Software Foundation.
+  list:
+
+    - name: SkyAPM-dotnet
+      icon: D
+      description: SkyAPM-dotnet provides the native support agent in C# and .NETStandard platform, with the helps from Apache SkyWalking committer team.
+      user: SkyAPM
+      repo: SkyAPM-dotnet
+
+    - name: Go2Sky
+      icon: G
+      description: Go2Sky is an instrument SDK library, written in Go, by following Apache SkyWalking tracing and metrics formats.
+      user: SkyAPM
+      repo: go2sky
+
+    - name: go2sky-plugins
+      icon: G
+      description: The plugins of go2sky.
+      user: SkyAPM
+      repo: go2sky-plugins
+
+    - name: SkyAPM-php-sdk
+      icon: P
+      description: SkyAPM PHP is the PHP instrumentation agent, which is compatible with Apache SkyWalking backend and others compatible agents/SDKs.
+      user: SkyAPM
+      repo: SkyAPM-php-sdk
+
+    - name: cpp2sky
+      icon: C
+      description: Distributed tracing and monitor SDK in CPP for Apache SkyWalking APM
+      user: SkyAPM
+      repo: cpp2sky
+
+    - name: SourceMarker
+      icon: S
+      description: JetBrains-powered plugin. Continuous Feedback for Developers / Feedback-Driven Development Tool.
+      user: sourceplusplus
+      repo: SourceMarker
+
+    - name: java-plugin-extensions
+      icon: J
+      description: Java agent plugin extensions for Apache SkyWalking.
+      user: SkyAPM
+      repo: java-plugin-extensions
+
+    - name: uranus
+      icon: U
+      description: A tool helps on locating witness class for Apache SkyWalking plugin.
+      user: SkyAPM
+      repo: uranus
+
+    - name: (Retired) SkyAPM Node.js
+      icon: O
+      description: SkyAPM Node.js is the Node.js instrumentation agent, this project wouldn't have any update, it has been retired and archived.
+      user: SkyAPM
+      repo: SkyAPM-nodejs

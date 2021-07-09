@@ -12,12 +12,12 @@ class Count {
     this.format = format;
     this.cols = cols;
     this.nativeObject = [];
-    this.ids = {};
     this.logins = {};
   }
 
   async start() {
     try {
+      console.log('start...');
       this.nativeObject = await this.loadYaml();
       await this.getAllRepoContributors();
       await this.writeFile();
@@ -46,7 +46,11 @@ class Count {
     let index = 0;
     const target = [];
     while (index < length) {
-      const obj = list.slice(index, (index += cols)).reduce((acc, cur, ind) => {
+      const arr = list.slice(index, (index += cols));
+      while (arr.length < cols) {
+        arr.push('');
+      }
+      const obj = arr.reduce((acc, cur, ind) => {
         acc['name' + ind] = cur;
         return acc;
       }, {});
@@ -65,22 +69,11 @@ class Count {
       return;
     }
     const data = {
-      totalCount: Object.keys(this.ids).length,
+      totalCount: Object.keys(this.logins).length,
       projects: this.nativeObject,
     };
     const yamlString = YAML.stringify(data);
     await promises.writeFile(this.output, yamlString, 'utf8');
-  }
-
-  getUniqueId(list) {
-    list.forEach((item) => {
-      const { id, email, login } = item;
-      this.logins[login] = login;
-      const key = id || email;
-      if (!this.ids[key]) {
-        this.ids[key] = key;
-      }
-    });
   }
 
   async loadYaml() {
@@ -91,15 +84,26 @@ class Count {
     });
     return data;
   }
+  handleData(data) {
+    return data
+      .filter((item) => item.type !== 'Bot')
+      .map((item) => {
+        const { type, email } = item;
+        if (type === 'Anonymous') {
+          item.login = email.replace(/(.+)@.+/, '$1**');
+        }
+        this.logins[item.login] = item.login;
+        return item;
+      });
+  }
 
   async getRepoContributors({ user, repo, page = 1, per_page = 100, list = [], item }) {
     let { data } = await axios.get(
       `https://api.github.com/repos/${user}/${repo}/contributors?page=${page}&per_page=${per_page}&anon=true`,
     );
-    data = data.filter((item) => item.type !== 'Bot');
+    data = this.handleData(data);
 
     list.push(...data);
-    this.getUniqueId(data);
     if (data.length === per_page) {
       page++;
       await this.getRepoContributors({ user, repo, page, per_page, list, item });

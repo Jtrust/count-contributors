@@ -47,7 +47,7 @@ class Count {
     const target = [];
     while (index < length) {
       const arr = list.slice(index, (index += cols));
-      while (arr.length < cols) {
+      while (arr.length && arr.length < cols) {
         arr.push('');
       }
       const obj = arr.reduce((acc, cur, ind) => {
@@ -99,7 +99,7 @@ class Count {
 
   async getRepoContributors({ user, repo, page = 1, per_page = 100, list = [], item }) {
     let { data } = await axios.get(
-      `https://api.github.com/repos/${user}/${repo}/contributors?page=${page}&per_page=${per_page}&anon=true`,
+      `https://api.github.com/repos/${user}/${repo}/contributors?page=${page}&per_page=${per_page}&anon=true&t=${new Date().getTime()}`,
     );
     data = this.handleData(data);
 
